@@ -16,6 +16,20 @@ Login.prototype.hello = function(sessionId) {
 };
 
 /**
+* Return name of a given user from session is
+*/
+Login.prototype.getUserName = function(sessionId) {
+	return this.sessionMap[sessionId].name;
+}
+
+/**
+* Return email of a given user from session is
+*/
+Login.prototype.getUserEmail = function(sessionId) {
+	return this.sessionMap[sessionId].email;
+}
+
+/**
  * Check whether the given session id is valid (is in sessionMap) or not.
  */
 Login.prototype.isLoggedIn = function(sessionId) {
@@ -45,6 +59,7 @@ Login.prototype.logout = function(sessionId) {
    /*
 	* TODO: Remove the given sessionId from the sessionMap
 	*/
+	delete this.sessionMap[sessionId];
 };
 
 // Export the Login class
